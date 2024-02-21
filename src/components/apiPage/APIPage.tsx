@@ -222,7 +222,7 @@ function APIPage() {
                   onActiveIndexChange={(swiperCore) => {
                     setSwiperIndex(swiperCore.realIndex);
                   }}
-                  modules={[Navigation, EffectCoverflow, Scrollbar]}
+                  modules={[Navigation, EffectCoverflow]}
                   effect={"coverflow"}
                   spaceBetween={50}
                   slidesPerView={1}
@@ -234,7 +234,6 @@ function APIPage() {
                     depth: 100,
                     modifier: 1,
                   }}
-                  scrollbar={{ draggable: true }}
                 >
                   {outPutArr &&
                     outPutArr.map((char, index) => {
