@@ -29,7 +29,7 @@ export const useGetAllLocations = () => {
           allLocations.push(...data.results);
         }
       } catch (error) {
-        setError(error.message);
+        setError(error as string);
       }
       setLocArr(allLocations);
       setLoading(false);

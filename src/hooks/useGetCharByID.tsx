@@ -16,7 +16,7 @@ export const useGetCharByID = (id: number) => {
 
         setChar(data as charData);
       } catch (error) {
-        setError(error?.message);
+        setError(error as string);
       }
       setLoading(false);
     };

@@ -25,11 +25,11 @@ export const useGetAllChars = () => {
             `https://rickandmortyapi.com/api/character/?page=${i}`,
             { signal: controller.signal }
           );
-          const data = await response.json();
+          const data: JSON = await response.json();
           getEpisodeNumbersAndPushToCharArr(data, allCharacters);
         }
       } catch (error) {
-        setError(error.message);
+        setError(error as string);
       }
 
       setCharArr(allCharacters);
