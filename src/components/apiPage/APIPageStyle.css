@@ -180,6 +180,7 @@ select {
   overflow: scroll;
   padding: 0.5vh 0;
   padding-bottom: 3vh;
+  scroll-behavior: smooth;
 }
 .epiMobileBox {
   width: 3rem;
