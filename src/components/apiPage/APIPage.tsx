@@ -222,7 +222,7 @@ function APIPage() {
                   onActiveIndexChange={(swiperCore) => {
                     setSwiperIndex(swiperCore.realIndex);
                   }}
-                  modules={[Navigation, Pagination, EffectCoverflow, Scrollbar]}
+                  modules={[Navigation, EffectCoverflow, Scrollbar]}
                   effect={"coverflow"}
                   spaceBetween={50}
                   slidesPerView={1}
