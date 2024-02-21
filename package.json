@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=./",
+    "build": "tsc && vite build  --base /rickmorty/",
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
