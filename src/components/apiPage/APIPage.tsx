@@ -27,13 +27,13 @@ function APIPage() {
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
   const [episodesArr, setEpisodesArr] = useState<boolean[]>();
 
-  const handleOnChangeSpecies = (e) => {
+  const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSpeciesValue(e.target.value);
   };
-  const handleOnChangeLocation = (e) => {
+  const handleOnChangeLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOriginValue(e.target.value);
   };
-  const handleOnChangeSearch = (e) => {
+  const handleOnChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
   const { outPutArr, speciesArr, originArr, loading } = useCreateOutPutArray(

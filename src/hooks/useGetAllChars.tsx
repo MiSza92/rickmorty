@@ -18,14 +18,14 @@ export const useGetAllChars = () => {
           { signal: controller.signal }
         );
         const data = await response.json();
-        getEpisodeNumbersAndPushToCharArr(data, allCharacters);
+        getEpisodeNumbersAndPushToCharArr(data.results, allCharacters);
 
         for (let i = 2; i < data.info.pages; i++) {
           const response = await fetch(
             `https://rickandmortyapi.com/api/character/?page=${i}`,
             { signal: controller.signal }
           );
-          const data: JSON = await response.json();
+          const data = await response.json();
           getEpisodeNumbersAndPushToCharArr(data, allCharacters);
         }
       } catch (error) {
@@ -43,22 +43,25 @@ export const useGetAllChars = () => {
 };
 export default useGetAllChars;
 
-function getEpisodeNumbersAndPushToCharArr(data, charArr: charData[]) {
-  for (let i = 0; i < data.results.length; i++) {
+function getEpisodeNumbersAndPushToCharArr(
+  data: charData[],
+  charArr: charData[]
+) {
+  for (let i = 0; i < data.length; i++) {
     let episodesArr: string[] = [];
-    for (let j = 0; j < data.results[i].episode.length; j++) {
-      let num = data.results[i].episode[j].lastIndexOf("/");
-      const episodeNum = data.results[i].episode[j].slice(num + 1);
+    for (let j = 0; j < data[i].episode?.length; j++) {
+      let num = data[i].episode[j]?.lastIndexOf("/");
+      const episodeNum = data[i].episode[j]?.slice(num + 1);
       episodesArr.push(episodeNum);
     }
 
     const character: charData = {
-      name: data.results[i].name,
-      image: data.results[i].image,
-      gender: data.results[i].gender,
-      location: data.results[i].location.name,
-      origin: data.results[i].origin.name,
-      species: data.results[i].species,
+      name: data[i].name,
+      image: data[i].image,
+      gender: data[i].gender,
+      location: data[i].location.name,
+      origin: data[i].origin.name,
+      species: data[i].species,
       episodes: episodesArr as [string],
     };
     charArr.push(character);
