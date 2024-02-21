@@ -74,7 +74,7 @@ function APIPage() {
     };
 
     window.addEventListener("resize", updateWindowDimensions);
-    console.log("width :>> ", width, width.valueOf());
+
     return () => window.removeEventListener("resize", updateWindowDimensions);
   }, [width]);
 
