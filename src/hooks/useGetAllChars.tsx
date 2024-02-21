@@ -49,9 +49,9 @@ function getEpisodeNumbersAndPushToCharArr(
 ) {
   for (let i = 0; i < data.length; i++) {
     let episodesArr: string[] = [];
-    for (let j = 0; j < data[i].episode?.length; j++) {
-      let num = data[i].episode[j]?.lastIndexOf("/");
-      const episodeNum = data[i].episode[j]?.slice(num + 1);
+    for (let j = 0; j < data[i].episodes?.length; j++) {
+      let num = data[i].episodes[j]?.lastIndexOf("/");
+      const episodeNum = data[i].episodes[j]?.slice(num + 1);
       episodesArr.push(episodeNum);
     }
 
@@ -59,8 +59,8 @@ function getEpisodeNumbersAndPushToCharArr(
       name: data[i].name,
       image: data[i].image,
       gender: data[i].gender,
-      location: data[i].location.name,
-      origin: data[i].origin.name,
+      location: data[i].location,
+      origin: data[i].origin,
       species: data[i].species,
       episodes: episodesArr as [string],
     };

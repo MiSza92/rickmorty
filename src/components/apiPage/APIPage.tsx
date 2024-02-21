@@ -27,10 +27,10 @@ function APIPage() {
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
   const [episodesArr, setEpisodesArr] = useState<boolean[]>();
 
-  const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSpeciesValue(e.target.value);
   };
-  const handleOnChangeLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeLocation = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOriginValue(e.target.value);
   };
   const handleOnChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
