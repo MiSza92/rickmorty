@@ -1,9 +1,8 @@
-import React from "react";
 import "./StarsStyle.css";
 
-type starProps = {
-  className: string;
-};
+// type starProps = {
+//   className: string;
+// };
 
 function Stars() {
   return (

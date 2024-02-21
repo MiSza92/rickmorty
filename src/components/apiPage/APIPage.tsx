@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./APIPageStyle.css";
-import useGetAllChars from "../../hooks/useGetAllChars";
-import Card from "../card/Card";
-import episodeBox from "../EpisodeBox";
 
-import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
+import Card from "../card/Card";
+
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
   Pagination,
