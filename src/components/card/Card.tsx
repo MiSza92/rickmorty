@@ -2,7 +2,7 @@ import "./CardStyle.css";
 
 type cardProps = {
   name: String;
-  image: String;
+  image: string;
   gender: String;
   location: String;
   origin: String;
@@ -10,17 +10,9 @@ type cardProps = {
 };
 
 function Card({ name, image, gender, location, origin, species }: cardProps) {
-  console.log("Props in Card:", {
-    name,
-    image,
-    gender,
-    location,
-    origin,
-    species,
-  });
   return (
     <div className="card">
-      <img src={image?.toString()} alt="Picture" />
+      <img src={image} alt="Picture" />
       <div className="charBox">
         <h1>{name} </h1>
         <table>

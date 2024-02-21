@@ -53,7 +53,9 @@ function APIPage() {
 
   useEffect(() => {
     if (outPutArr[swiperIndex]) {
+      // console.log("object :>> ", outPutArr[swiperIndex]);
       setEpisodesArr(createBoxesArr(outPutArr[swiperIndex]));
+      // console.log("episodesArr :>> ", episodesArr);
     }
   }, [swiperIndex, outPutArr]);
 
@@ -95,14 +97,14 @@ function APIPage() {
                   onChange={handleOnChangeSpecies}
                 >
                   <option value="all">all</option>
-                  {/* {speciesArr &&
+                  {speciesArr &&
                     speciesArr.map((species, index) => {
                       return (
                         <option value={species} key={index}>
                           {species}
                         </option>
                       );
-                    })} */}
+                    })}
                 </select>
               </div>
 
@@ -158,30 +160,30 @@ function APIPage() {
                   if (outPutArr.length > 1) {
                     return (
                       <SwiperSlide key={index}>
-                        {/* <Card
-                        name={char.name}
-                        image={char.image}
-                        gender={char.gender}
-                        location={char.location}
-                        origin={char.origin}
-                        species={char.species}
-                      /> */}
-                      </SwiperSlide>
-                    );
-                  } else {
-                    return (
-                      <SwiperSlide key={index}>
-                        {/* <div className="singleSlide">
-                        {char.name}
                         <Card
                           name={char.name}
-                          image={char.image}
+                          image={char.image.toString()}
                           gender={char.gender}
                           location={char.location}
                           origin={char.origin}
                           species={char.species}
                         />
-                      </div> */}
+                      </SwiperSlide>
+                    );
+                  } else {
+                    return (
+                      <SwiperSlide key={index}>
+                        <div className="singleSlide">
+                          {char.name}
+                          <Card
+                            name={char.name}
+                            image={char.image.toString()}
+                            gender={char.gender}
+                            location={char.location}
+                            origin={char.origin}
+                            species={char.species}
+                          />
+                        </div>
                       </SwiperSlide>
                     );
                   }
@@ -229,5 +231,6 @@ function createBoxesArr(char: charData) {
     episodesArr[num] = true;
   }
   episodesArr.shift();
+
   return episodesArr;
 }

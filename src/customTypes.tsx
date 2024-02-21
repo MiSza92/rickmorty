@@ -16,3 +16,13 @@ export type countedData = {
   value: string;
   count: number;
 };
+
+export type rawData = {
+  name: String;
+  image: String;
+  gender: String;
+  location: { name: String; url: String };
+  origin: { name: String; url: String };
+  species: String;
+  episode: string[];
+};

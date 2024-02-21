@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { charData } from "../customTypes";
+import { charData, rawData } from "../customTypes";
 import useGetAllChars from "./useGetAllChars";
 
 export const useCreateOutPutArray = (
@@ -27,10 +27,10 @@ export const useCreateOutPutArray = (
   function createOutPutArr(
     arr: charData[],
     species: string,
-    origin: string,
+    location: string,
     search: string
   ) {
-    setOriginArr(filterArray(arr, "origin"));
+    setOriginArr(filterArray(arr, "location"));
     setSpeciesArr(filterArray(arr, "species"));
     if (search !== "") {
       arr = arr.filter(
@@ -43,8 +43,8 @@ export const useCreateOutPutArray = (
     if (species !== "all") {
       arr = arr.filter((char) => char.species == species);
     }
-    if (origin !== "all") {
-      arr = arr.filter((char) => char.origin == origin);
+    if (location !== "all") {
+      arr = arr.filter((char) => char.location == location);
     }
 
     setOutPutArr(arr);
@@ -53,13 +53,13 @@ export const useCreateOutPutArray = (
   return { outPutArr, speciesArr, originArr, loading };
 };
 
-function filterArray(arr: charData[], value: "species" | "origin") {
+function filterArray(arr: charData[], value: "species" | "location") {
   let rawArray: string[] = [];
   for (let i = 0; i < arr.length; i++) {
     if (value == "species") {
       rawArray.push(arr[i].species as string);
-    } else if (value == "origin") {
-      rawArray.push(arr[i].origin as string);
+    } else if (value == "location") {
+      rawArray.push(arr[i].location as string);
     }
   }
   let filteredArray: string[] = [];
