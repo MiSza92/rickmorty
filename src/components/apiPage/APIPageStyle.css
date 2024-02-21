@@ -187,6 +187,7 @@ select {
   width: 2.5rem;
   height: 3rem;
   margin: 0 0.25vw;
+  padding: 0.5vh 0.5vw;
 }
 .drawerContainer {
   position: absolute;
