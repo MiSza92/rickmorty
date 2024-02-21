@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { charData, rawData } from "../customTypes";
+import { charData } from "../customTypes";
 import useGetAllChars from "./useGetAllChars";
 
 export const useCreateOutPutArray = (
