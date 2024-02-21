@@ -179,7 +179,7 @@ select {
   justify-content: start;
   overflow: scroll;
   border: red solid;
-  padding-bottom: 10vh;
+  padding-bottom: 6vh;
   /* margin-bottom: 10vh; */
 }
 .epiMobileBox {
