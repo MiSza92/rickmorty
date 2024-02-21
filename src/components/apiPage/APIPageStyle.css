@@ -179,6 +179,7 @@ select {
   justify-content: center;
   overflow: scroll;
   padding: 0.5vh 0;
+  padding-bottom: 3vh;
 }
 .epiMobileBox {
   width: 3rem;
