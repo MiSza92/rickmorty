@@ -172,7 +172,6 @@ select {
   overflow: hidden;
 }
 .boxMobileContainer {
-  border: blue solid;
   height: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -183,7 +182,6 @@ select {
   margin-bottom: 7vh;
 }
 .epiMobileBox {
-  border: green solid;
   width: 2.5rem;
   height: 3rem;
   margin: 0 0.25vw;
