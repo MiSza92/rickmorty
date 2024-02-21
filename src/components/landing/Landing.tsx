@@ -43,7 +43,7 @@ function Landing() {
           Rick & Morty API.
         </div>
       </div>
-      <Stars />
+      {/* <Stars /> */}
     </div>
   );
 }
