@@ -169,6 +169,7 @@ select {
 }
 .episodesMobileContainer {
   width: 60%;
+  overflow: hidden;
 }
 .boxMobileContainer {
   height: 90%;
@@ -178,7 +179,6 @@ select {
   justify-content: center;
   overflow: scroll;
   padding: 0.5vh 0;
-  overflow: hidden;
 }
 .epiMobileBox {
   width: 4rem;
