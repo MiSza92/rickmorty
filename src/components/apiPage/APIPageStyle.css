@@ -173,7 +173,7 @@ select {
 }
 .boxMobileContainer {
   border: blue solid;
-  height: 85%;
+  height: 80%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
