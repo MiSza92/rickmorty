@@ -1,7 +1,7 @@
 import "./LandingStyle.css";
 import ship from "../../assets/rmship.png";
 import header from "../../assets/rmLogo.png";
-import Stars from "../Stars";
+// import Stars from "../Stars";
 
 function Landing() {
   function handleClick() {
