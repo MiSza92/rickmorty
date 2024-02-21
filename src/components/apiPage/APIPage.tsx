@@ -19,6 +19,7 @@ import "swiper/css/scrollbar";
 import useCreateOutPutArray from "../../hooks/useCreateOutPutArray";
 import EpisodeBox from "../EpisodeBox";
 import { charData } from "../../customTypes";
+import React from "react";
 
 function APIPage() {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -56,18 +57,18 @@ function APIPage() {
     }
   }, [swiperIndex, outPutArr]);
 
-  const [width, setWidth] = useState(0);
   //! bei 1365 umschalten
-  useEffect(() => {
-    const updateWindowDimensions = () => {
-      const newWidth = window.innerWidth;
-      setWidth(newWidth);
-    };
+  // const [width, setWidth] = useState(0);
+  // useEffect(() => {
+  //   const updateWindowDimensions = () => {
+  //     const newWidth = window.innerWidth;
+  //     setWidth(newWidth);
+  //   };
 
-    window.addEventListener("resize", updateWindowDimensions);
-    // console.log("width :>> ", width);
-    return () => window.removeEventListener("resize", updateWindowDimensions);
-  }, [width]);
+  //   window.addEventListener("resize", updateWindowDimensions);
+  //   // console.log("width :>> ", width);
+  //   return () => window.removeEventListener("resize", updateWindowDimensions);
+  // }, [width]);
 
   return (
     <div className="api">
@@ -94,14 +95,14 @@ function APIPage() {
                   onChange={handleOnChangeSpecies}
                 >
                   <option value="all">all</option>
-                  {speciesArr &&
+                  {/* {speciesArr &&
                     speciesArr.map((species, index) => {
                       return (
                         <option value={species} key={index}>
                           {species}
                         </option>
                       );
-                    })}
+                    })} */}
                 </select>
               </div>
 
@@ -116,7 +117,7 @@ function APIPage() {
                     originArr.map((location, index) => {
                       return (
                         <option key={index} value={location?.toString()}>
-                          {location}
+                          {location?.toString()}
                         </option>
                       );
                     })}
@@ -157,15 +158,30 @@ function APIPage() {
                   if (outPutArr.length > 1) {
                     return (
                       <SwiperSlide key={index}>
-                        <Card key={index}>{char}</Card>
+                        {/* <Card
+                        name={char.name}
+                        image={char.image}
+                        gender={char.gender}
+                        location={char.location}
+                        origin={char.origin}
+                        species={char.species}
+                      /> */}
                       </SwiperSlide>
                     );
                   } else {
                     return (
                       <SwiperSlide key={index}>
-                        <div className="singleSlide">
-                          <Card key={index}>{char}</Card>
-                        </div>
+                        {/* <div className="singleSlide">
+                        {char.name}
+                        <Card
+                          name={char.name}
+                          image={char.image}
+                          gender={char.gender}
+                          location={char.location}
+                          origin={char.origin}
+                          species={char.species}
+                        />
+                      </div> */}
                       </SwiperSlide>
                     );
                   }
@@ -189,10 +205,8 @@ function APIPage() {
             {episodesArr &&
               episodesArr.map((episode, index) => {
                 return (
-                  <div className="epiBox">
-                    <EpisodeBox highlight={episode} key={index}>
-                      {index + 1}
-                    </EpisodeBox>
+                  <div className="epiBox" key={index}>
+                    <EpisodeBox highlight={episode}>{index + 1}</EpisodeBox>
                   </div>
                 );
               })}
