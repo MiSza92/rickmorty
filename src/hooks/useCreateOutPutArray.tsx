@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { charData, countedData } from "../customTypes";
+import { charData } from "../customTypes";
 import useGetAllChars from "./useGetAllChars";
-import useGetAllLocations from "./useGetAllLocations";
 
 export const useCreateOutPutArray = (
   speciesValue: string,
@@ -9,17 +8,11 @@ export const useCreateOutPutArray = (
   searchValue: string
 ) => {
   const [outPutArr, setOutPutArr] = useState<charData[]>([]);
-  //   const [speciesArr2, setSpeciesArr2] = useState<countedData[]>([]);
-  //   const [originArr, setOriginArr] = useState<optionData[]>([]);
   const [speciesArr, setSpeciesArr] = useState<string[]>([]);
   const [originArr, setOriginArr] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const {
-    charArr,
-    loading: charsLoading,
-    error: charsError,
-  } = useGetAllChars();
+  const { charArr } = useGetAllChars();
 
   //! Start Effect
 
