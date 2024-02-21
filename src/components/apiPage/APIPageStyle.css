@@ -159,16 +159,16 @@ select {
   border: black solid;
   outline: 0.5vh solid var(--grün);
   display: flex;
-
+  flex-direction: column;
   position: relative;
   z-index: 0;
 }
 .swipMobileContainer {
-  width: 60%;
-  margin: 2vh 0vw;
+  height: 50%;
+  width: 100%;
 }
 .episodesMobileContainer {
-  width: 40%;
+  width: 100%;
   overflow: hidden;
 }
 .boxMobileContainer {

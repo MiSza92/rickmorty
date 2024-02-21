@@ -241,23 +241,13 @@ function APIPage() {
                 >
                   {outPutArr &&
                     outPutArr.map((char, index) => {
-                      if (outPutArr.length > 1) {
-                        return (
-                          <SwiperSlide key={index}>
-                            <div className="singleSlide">
-                              <Card>{char}</Card>
-                            </div>
-                          </SwiperSlide>
-                        );
-                      } else {
-                        return (
-                          <SwiperSlide key={index}>
-                            <div className="singleSlide">
-                              <Card>{char}</Card>
-                            </div>
-                          </SwiperSlide>
-                        );
-                      }
+                      return (
+                        <SwiperSlide key={index}>
+                          <div className="singleSlide">
+                            <Card>{char}</Card>
+                          </div>
+                        </SwiperSlide>
+                      );
                     })}
                 </Swiper>
               )}
