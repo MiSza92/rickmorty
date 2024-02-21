@@ -111,9 +111,7 @@ select {
   margin-left: 4.5vw !important;
   width: 75% !important;
 }
-.bla {
-  overflow: hidden;
-}
+
 .singleSlide {
   height: 80vh;
 
@@ -180,6 +178,7 @@ select {
   justify-content: center;
   overflow: scroll;
   padding: 0.5vh 0;
+  overflow: hidden;
 }
 .epiMobileBox {
   width: 4rem;
