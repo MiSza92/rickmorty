@@ -180,7 +180,7 @@ select {
   justify-content: center;
   overflow: scroll;
   padding-bottom: 5vh 0;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
 }
 .epiMobileBox {
   border: green solid;
