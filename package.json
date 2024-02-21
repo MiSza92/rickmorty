@@ -1,12 +1,12 @@
 {
-  "homepage":"/rickmorty/",
+  "homepage":"https://synav92.github.io/rickmorty/",
   "name": "rickmorty",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build  --base /rickmorty/",
+    "build": "tsc && vite build  --base https://synav92.github.io/rickmorty/",
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
