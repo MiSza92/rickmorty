@@ -65,7 +65,7 @@ function APIPage() {
     };
 
     window.addEventListener("resize", updateWindowDimensions);
-    console.log("width :>> ", width);
+    // console.log("width :>> ", width);
     return () => window.removeEventListener("resize", updateWindowDimensions);
   }, [width]);
 
