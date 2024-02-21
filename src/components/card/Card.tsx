@@ -1,20 +1,17 @@
 import "./CardStyle.css";
 
+import { charData } from "../../customTypes";
+
 type cardProps = {
-  name: String;
-  image: string;
-  gender: String;
-  location: String;
-  origin: String;
-  species: String;
+  children: charData;
 };
 
-function Card({ name, image, gender, location, origin, species }: cardProps) {
+function Card({ children }: cardProps) {
   return (
     <div className="card">
-      <img src={image} alt="Picture" />
+      <img src={children?.image.toString()} alt="Picture" />
       <div className="charBox">
-        <h1>{name} </h1>
+        <h1>{children?.name} </h1>
         <table>
           <tbody>
             <tr>
@@ -22,7 +19,7 @@ function Card({ name, image, gender, location, origin, species }: cardProps) {
                 <p>Species:</p>
               </td>
               <td>
-                <p>{species}</p>
+                <p>{children?.species}</p>
               </td>
             </tr>
             <tr>
@@ -30,7 +27,7 @@ function Card({ name, image, gender, location, origin, species }: cardProps) {
                 <p>Gender:</p>
               </td>
               <td>
-                <p>{gender}</p>
+                <p>{children?.gender}</p>
               </td>
             </tr>
             <tr>
@@ -38,7 +35,7 @@ function Card({ name, image, gender, location, origin, species }: cardProps) {
                 <p>Origin:</p>
               </td>
               <td>
-                <p>{origin}</p>
+                <p>{children?.origin}</p>
               </td>
             </tr>
             <tr>
@@ -46,9 +43,17 @@ function Card({ name, image, gender, location, origin, species }: cardProps) {
                 <p>Current location:</p>
               </td>
               <td>
-                <p>{location}</p>
+                <p>{children?.location}</p>
               </td>
             </tr>
+            {/* <tr>
+              <td>
+                <p>In episode:</p>
+              </td>
+              <td>
+                <p>{episoden}</p>
+              </td>
+            </tr> */}
           </tbody>
         </table>
       </div>

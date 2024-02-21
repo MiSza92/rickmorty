@@ -160,29 +160,14 @@ function APIPage() {
                   if (outPutArr.length > 1) {
                     return (
                       <SwiperSlide key={index}>
-                        <Card
-                          name={char.name}
-                          image={char.image.toString()}
-                          gender={char.gender}
-                          location={char.location}
-                          origin={char.origin}
-                          species={char.species}
-                        />
+                        <Card>{char}</Card>
                       </SwiperSlide>
                     );
                   } else {
                     return (
                       <SwiperSlide key={index}>
                         <div className="singleSlide">
-                          {char.name}
-                          <Card
-                            name={char.name}
-                            image={char.image.toString()}
-                            gender={char.gender}
-                            location={char.location}
-                            origin={char.origin}
-                            species={char.species}
-                          />
+                          <Card>{char}</Card>
                         </div>
                       </SwiperSlide>
                     );
@@ -195,11 +180,11 @@ function APIPage() {
           <div className="epiText">
             <p>
               Hello my Name is{" "}
-              <span style={{ display: "inline", fontSize: 50 }}>
-                {outPutArr[swiperIndex]?.name}
+              <span style={{ display: "inline", fontSize: 30 }}>
+                {outPutArr[swiperIndex]?.name},
               </span>
               <br />I appear in{" "}
-              <span style={{ display: "inline", fontSize: 40 }}>Episode:</span>
+              <span style={{ display: "inline", fontSize: 25 }}>Episode:</span>
             </p>
           </div>
 
