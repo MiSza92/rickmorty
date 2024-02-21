@@ -1,16 +1,16 @@
 .api {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   position: relative;
   background: var(--backGround);
   z-index: 2;
   padding: 0 2vw;
 }
+
 .loadingText {
   text-align: center;
   width: 100%;
@@ -116,7 +116,6 @@ select {
 }
 .singleSlide {
   height: 80vh;
-  width: max-content;
 
   margin: 2vh 2vw;
 }
@@ -131,7 +130,7 @@ select {
   overflow: hidden;
 }
 .boxContainer {
-  height: 85%;
+  height: 90%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -152,4 +151,93 @@ select {
 }
 .epiBox:last-child {
   justify-content: start;
+}
+.mobileContainer {
+  height: 97%;
+  width: 100%;
+  margin: 3vh 2vw;
+  border-radius: var(--radius2);
+  background: var(--orange);
+  border: black solid;
+  outline: 0.5vh solid var(--grün);
+  display: flex;
+
+  position: relative;
+  z-index: 0;
+}
+.swipMobileContainer {
+  width: 40%;
+  margin: 2vh 0vw;
+}
+.episodesMobileContainer {
+  width: 60%;
+}
+.boxMobileContainer {
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+  padding: 0.5vh 0;
+}
+.epiMobileBox {
+  width: 4rem;
+  height: 4rem;
+  padding-top: 1.5vh;
+  margin-left: 1.5vw;
+}
+.drawerContainer {
+  position: absolute;
+  z-index: 1;
+  bottom: 3%;
+}
+.filterBtn {
+  background: #00c7a6;
+  color: var(--grün);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: 2.5vh;
+  margin: 1vh 0;
+  padding: 0.5vh 0.5vw;
+  border-radius: 65px;
+  outline: #27162c;
+  box-shadow: black 0px 5px 5px;
+  cursor: pointer;
+  border-color: #04aa6d;
+}
+.drawer {
+  border-top-right-radius: var(--radius1);
+  border-top-left-radius: var(--radius1);
+}
+
+.mobileFilterBox {
+  background: var(--orange);
+  color: var(--grün);
+  height: 100%;
+  padding: 0.5vh 0.5vw;
+  margin: 0 0.5vw;
+  border-top-right-radius: var(--radius1);
+  border-top-left-radius: var(--radius1);
+  border: black solid;
+  outline: 0.5vh solid #b5de17;
+}
+.mobileFilterBox div {
+  padding-top: 1vh;
+  display: flex;
+  white-space: nowrap;
+  font-size: 2.5vh;
+  color: var(--grün);
+}
+.mobileFilterBox div input,
+select {
+  font-size: 2.2vh;
+  width: 100%;
+  height: 2.7vh;
+  margin-top: 0.3vh;
+  margin: 0.3vh 2vw;
+  padding-left: 0.2vw;
+  color: var(--grün);
+  background: var(--blau);
+  border-radius: 10px;
 }

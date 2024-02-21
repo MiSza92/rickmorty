@@ -20,6 +20,8 @@ import useCreateOutPutArray from "../../hooks/useCreateOutPutArray";
 import EpisodeBox from "../EpisodeBox";
 import { charData } from "../../customTypes";
 import React from "react";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
 
 function APIPage() {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -27,6 +29,7 @@ function APIPage() {
   const [originValue, setOriginValue] = useState<string>("all");
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
   const [episodesArr, setEpisodesArr] = useState<boolean[]>();
+  const [width, setWidth] = useState<number>(0);
 
   const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSpeciesValue(e.target.value);
@@ -58,148 +61,290 @@ function APIPage() {
       // console.log("episodesArr :>> ", episodesArr);
     }
   }, [swiperIndex, outPutArr]);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDrawer = () => {
+    setIsOpen((prevState) => !prevState);
+  };
   //! bei 1365 umschalten
-  // const [width, setWidth] = useState(0);
-  // useEffect(() => {
-  //   const updateWindowDimensions = () => {
-  //     const newWidth = window.innerWidth;
-  //     setWidth(newWidth);
-  //   };
 
-  //   window.addEventListener("resize", updateWindowDimensions);
-  //   // console.log("width :>> ", width);
-  //   return () => window.removeEventListener("resize", updateWindowDimensions);
-  // }, [width]);
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      const newWidth = window.innerWidth;
+      setWidth(newWidth);
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
+    console.log("width :>> ", width, width.valueOf());
+    return () => window.removeEventListener("resize", updateWindowDimensions);
+  }, [width]);
 
   return (
-    <div className="api">
-      <div className="optionsContainer">
-        {loading ? (
-          <p className="loadingText">Sorry, it's loading...</p>
-        ) : (
-          <div>
-            <h1>Apply the filters :</h1>
-            <div className="filterBox">
-              <div className="searchContainer">
-                <label>Search by name:</label>
-                <input
-                  type="text"
-                  id="search"
-                  value={searchValue}
-                  onChange={handleOnChangeSearch}
-                />
+    <div>
+      {width > 1365 ? (
+        <div className="api">
+          <div className="optionsContainer">
+            {loading ? (
+              <p className="loadingText">Sorry, it's loading...</p>
+            ) : (
+              <div>
+                <h1>Apply the filters :</h1>
+                <div className="filterBox">
+                  <div className="searchContainer">
+                    <label>Search by name:</label>
+                    <input
+                      type="text"
+                      id="search"
+                      value={searchValue}
+                      onChange={handleOnChangeSearch}
+                    />
+                  </div>
+                  <div className="speciesContainer">
+                    <label>Choose a species:</label>
+                    <select
+                      className="speciesSelect"
+                      onChange={handleOnChangeSpecies}
+                    >
+                      <option value="all">all</option>
+                      {speciesArr &&
+                        speciesArr.map((species, index) => {
+                          return (
+                            <option value={species} key={index}>
+                              {species}
+                            </option>
+                          );
+                        })}
+                    </select>
+                  </div>
+
+                  <div className="locContainer">
+                    <label>Choose a current location:</label>
+                    <select
+                      className="locationSelect"
+                      onChange={handleOnChangeLocation}
+                    >
+                      <option value="all">all</option>
+                      {originArr &&
+                        originArr.map((location, index) => {
+                          return (
+                            <option key={index} value={location?.toString()}>
+                              {location?.toString()}
+                            </option>
+                          );
+                        })}
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div className="speciesContainer">
-                <label>Choose a species:</label>
-                <select
-                  className="speciesSelect"
-                  onChange={handleOnChangeSpecies}
+            )}{" "}
+          </div>
+          <div className="midContainer">
+            <div className="swipContainer">
+              {loading ? (
+                <p className="loadingText">Sorry, it's loading...</p>
+              ) : (
+                <Swiper
+                  onActiveIndexChange={(swiperCore) => {
+                    setSwiperIndex(swiperCore.realIndex);
+                  }}
+                  modules={[Navigation, Pagination, EffectCoverflow, Scrollbar]}
+                  effect={"coverflow"}
+                  spaceBetween={50}
+                  slidesPerView={slides}
+                  navigation={true}
+                  centeredSlides={true}
+                  pagination={{
+                    type: "fraction",
+                  }}
+                  coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                  }}
+                  scrollbar={{ draggable: true }}
                 >
-                  <option value="all">all</option>
-                  {speciesArr &&
-                    speciesArr.map((species, index) => {
-                      return (
-                        <option value={species} key={index}>
-                          {species}
-                        </option>
-                      );
+                  {outPutArr &&
+                    outPutArr.map((char, index) => {
+                      if (outPutArr.length > 1) {
+                        return (
+                          <SwiperSlide key={index}>
+                            <Card>{char}</Card>
+                          </SwiperSlide>
+                        );
+                      } else {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div className="singleSlide">
+                              <Card>{char}</Card>
+                            </div>
+                          </SwiperSlide>
+                        );
+                      }
                     })}
-                </select>
+                </Swiper>
+              )}
+            </div>
+            <div className="episodesContainer">
+              <div className="epiText">
+                <p>
+                  Hello my Name is{" "}
+                  <span style={{ display: "inline", fontSize: 30 }}>
+                    {outPutArr[swiperIndex]?.name},
+                  </span>
+                  <br />I appear in{" "}
+                  <span style={{ display: "inline", fontSize: 25 }}>
+                    Episode:
+                  </span>
+                </p>
               </div>
 
-              <div className="locContainer">
-                <label>Choose a current location:</label>
-                <select
-                  className="locationSelect"
-                  onChange={handleOnChangeLocation}
-                >
-                  <option value="all">all</option>
-                  {originArr &&
-                    originArr.map((location, index) => {
-                      return (
-                        <option key={index} value={location?.toString()}>
-                          {location?.toString()}
-                        </option>
-                      );
-                    })}
-                </select>
+              <div className="boxContainer">
+                {episodesArr &&
+                  episodesArr.map((episode, index) => {
+                    return (
+                      <div className="epiBox" key={index}>
+                        <EpisodeBox highlight={episode}>{index + 1}</EpisodeBox>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>
-        )}{" "}
-      </div>
-      <div className="midContainer">
-        <div className="swipContainer">
-          {loading ? (
-            <p className="loadingText">Sorry, it's loading...</p>
-          ) : (
-            <Swiper
-              onActiveIndexChange={(swiperCore) => {
-                setSwiperIndex(swiperCore.realIndex);
-              }}
-              modules={[Navigation, Pagination, EffectCoverflow, Scrollbar]}
-              effect={"coverflow"}
-              spaceBetween={50}
-              slidesPerView={slides}
-              navigation={true}
-              centeredSlides={true}
-              pagination={{
-                type: "fraction",
-              }}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-              }}
-              scrollbar={{ draggable: true }}
-            >
-              {outPutArr &&
-                outPutArr.map((char, index) => {
-                  if (outPutArr.length > 1) {
-                    return (
-                      <SwiperSlide key={index}>
-                        <Card>{char}</Card>
-                      </SwiperSlide>
-                    );
-                  } else {
-                    return (
-                      <SwiperSlide key={index}>
-                        <div className="singleSlide">
-                          <Card>{char}</Card>
-                        </div>
-                      </SwiperSlide>
-                    );
-                  }
-                })}
-            </Swiper>
-          )}
         </div>
-        <div className="episodesContainer">
-          <div className="epiText">
-            <p>
-              Hello my Name is{" "}
-              <span style={{ display: "inline", fontSize: 30 }}>
-                {outPutArr[swiperIndex]?.name},
-              </span>
-              <br />I appear in{" "}
-              <span style={{ display: "inline", fontSize: 25 }}>Episode:</span>
-            </p>
-          </div>
+      ) : (
+        <div className="api">
+          <div className="mobileContainer">
+            <div className="swipMobileContainer">
+              {loading ? (
+                <p className="loadingText">Sorry, it's loading...</p>
+              ) : (
+                <Swiper
+                  onActiveIndexChange={(swiperCore) => {
+                    setSwiperIndex(swiperCore.realIndex);
+                  }}
+                  modules={[Navigation, Pagination, EffectCoverflow, Scrollbar]}
+                  effect={"coverflow"}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  navigation={true}
+                  centeredSlides={true}
+                  pagination={{
+                    type: "fraction",
+                  }}
+                  coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                  }}
+                  scrollbar={{ draggable: true }}
+                >
+                  {outPutArr &&
+                    outPutArr.map((char, index) => {
+                      if (outPutArr.length > 1) {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div className="singleSlide">
+                              <Card>{char}</Card>
+                            </div>
+                          </SwiperSlide>
+                        );
+                      } else {
+                        return (
+                          <SwiperSlide key={index}>
+                            <div className="singleSlide">
+                              <Card>{char}</Card>
+                            </div>
+                          </SwiperSlide>
+                        );
+                      }
+                    })}
+                </Swiper>
+              )}
+            </div>
+            <div className="episodesMobileContainer">
+              <div className="epiText">
+                <p>
+                  Hello my Name is {outPutArr[swiperIndex]?.name}, I appear in
+                  <span style={{ display: "inline", fontSize: 25 }}>
+                    {"  Episode :"}
+                  </span>
+                </p>
+              </div>
 
-          <div className="boxContainer">
-            {episodesArr &&
-              episodesArr.map((episode, index) => {
-                return (
-                  <div className="epiBox" key={index}>
-                    <EpisodeBox highlight={episode}>{index + 1}</EpisodeBox>
-                  </div>
-                );
-              })}
+              <div className="boxMobileContainer">
+                {episodesArr &&
+                  episodesArr.map((episode, index) => {
+                    return (
+                      <div className="epiMobileBox" key={index}>
+                        <EpisodeBox highlight={episode}>{index + 1}</EpisodeBox>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>{" "}
+          </div>{" "}
+          <div className="drawerContainer">
+            <button onClick={toggleDrawer} className="filterBtn">
+              <p>Apply Filters</p>
+            </button>
+            <Drawer
+              open={isOpen}
+              onClose={toggleDrawer}
+              direction="bottom"
+              lockBackgroundScroll={true}
+              className="drawer"
+            >
+              <div className="mobileFilterBox">
+                <div className="searchContainer">
+                  <label>Search by name:</label>
+                  <input
+                    type="text"
+                    id="search"
+                    value={searchValue}
+                    onChange={handleOnChangeSearch}
+                  />
+                </div>
+                <div className="speciesContainer">
+                  <label>Choose a species:</label>
+                  <select
+                    className="speciesSelect"
+                    onChange={handleOnChangeSpecies}
+                  >
+                    <option value="all">all</option>
+                    {speciesArr &&
+                      speciesArr.map((species, index) => {
+                        return (
+                          <option key={index} value={species}>
+                            {species}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </div>
+
+                <div className="locContainer">
+                  <label>Choose an origin:</label>
+                  <select
+                    className="locationSelect"
+                    onChange={handleOnChangeLocation}
+                  >
+                    <option value="all">all</option>
+                    {originArr &&
+                      originArr.map((location, index) => {
+                        return (
+                          <option key={index} value={location?.toString()}>
+                            {location}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </div>
+              </div>
+            </Drawer>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
