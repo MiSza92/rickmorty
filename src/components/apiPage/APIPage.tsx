@@ -228,9 +228,6 @@ function APIPage() {
                   slidesPerView={1}
                   navigation={true}
                   centeredSlides={true}
-                  pagination={{
-                    type: "fraction",
-                  }}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
