@@ -146,6 +146,7 @@ select {
 .epiBox {
   width: 7rem;
   height: 4.5rem;
+  font-size: 2.5rem;
   margin: 1vh 0.2vw;
 }
 .epiBox:last-child {
