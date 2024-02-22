@@ -40,19 +40,6 @@ p {
   border-bottom-right-radius: var(--radius3);
 }
 
-.charBox td {
-  border-bottom: var(--gelb) solid;
-}
-.charBox td:nth-child(even) {
-  text-align: end;
-}
-
-.charBox table {
-  height: 80%;
-
-  border-collapse: collapse;
-  margin: 0 1vw;
-}
 .cardTextContainer {
   display: flex;
   flex-direction: column;
