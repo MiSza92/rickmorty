@@ -114,7 +114,8 @@ select {
 
 .singleSlide {
   height: 100%;
-  margin: 0vh 2vw;
+
+  margin: 0vh 4vw;
 }
 .episodesContainer {
   width: 100%;

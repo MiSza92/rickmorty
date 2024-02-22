@@ -23,14 +23,9 @@
   background: var(--blau);
 }
 
-h1 {
-  font-size: 3vh;
-}
-p {
-  font-size: 2.3vh;
-}
 .charBox {
   padding-top: 1vh;
+  padding: 0vh 1vw;
   height: 50%;
   display: flex;
   align-content: center;
@@ -39,32 +34,24 @@ p {
   border-bottom-left-radius: var(--radius3);
   border-bottom-right-radius: var(--radius3);
 }
-
-.cardTextContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.infoTable {
   height: 100%;
-  overflow: scroll;
+  border-collapse: collapse;
 }
-.cardTextContainer div {
-  display: flex;
-  justify-content: space-between;
-  /* border-bottom: var(--grün) 3px solid; */
-  /* border-bottom: 1px solid; */
+.infoTable tr:not(:first-child):not(:last-child) {
+  border-bottom: 2pt solid var(--grün);
 }
-
-.cardTextContainer div p {
-  text-align: start;
-}
-.cardTextContainer div p:last-child {
-  text-align: end;
-}
-.cardTextContainer hr {
-  margin: 0 6vw;
-
-  width: 80%;
+.infoTable td {
   color: var(--grün);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: 2.5vh;
+}
+.infoTable h1 {
+  font-size: 4vh;
+}
+.infoTable td:nth-child(even) {
+  text-align: right;
 }
 
 @keyframes move {

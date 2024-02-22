@@ -11,24 +11,32 @@ function Card({ children }: cardProps) {
     <div className="card">
       <img src={children?.image.toString()} alt="Picture" loading="lazy" />
       <div className="charBox">
-        <h1>{children?.name} </h1>
-        <div className="cardTextContainer">
-          <div>
-            <p>Species:</p> <p> {children?.species}</p>
-          </div>
-          <hr />
-          <div>
-            <p>Gender:</p> <p> {children?.gender}</p>
-          </div>
-          <hr />
-          <div>
-            <p>Origin:</p> <p> {children?.origin}</p>
-          </div>
-          <hr />
-          <div>
-            <p>Current location:</p> <p> {children?.location}</p>
-          </div>
-        </div>
+        <table className="infoTable">
+          <thead>
+            <tr>
+              <td colSpan={2}>
+                {" "}
+                <h1>{children?.name} </h1>
+              </td>
+            </tr>
+          </thead>
+          <tr>
+            <td>Species:</td>
+            <td>{children?.species}</td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>{children?.gender}</td>
+          </tr>
+          <tr>
+            <td>Origin:</td>
+            <td> {children?.origin}</td>
+          </tr>
+          <tr>
+            <td>Current location:</td>
+            <td>{children?.location}</td>
+          </tr>
+        </table>
       </div>
     </div>
   );
