@@ -96,12 +96,13 @@ function APIPage() {
                       id="search"
                       value={searchValue}
                       onChange={handleOnChangeSearch}
+                      className="filter"
                     />
                   </div>
                   <div className="speciesContainer">
                     <label>Choose a species:</label>
                     <select
-                      className="speciesSelect"
+                      className="speciesSelect filter"
                       onChange={handleOnChangeSpecies}
                     >
                       <option value="all">all</option>
@@ -119,7 +120,7 @@ function APIPage() {
                   <div className="locContainer">
                     <label>Choose a current location:</label>
                     <select
-                      className="locationSelect"
+                      className="locationSelect filter"
                       onChange={handleOnChangeLocation}
                     >
                       <option value="all">all</option>
@@ -294,6 +295,7 @@ function APIPage() {
                           id="search"
                           value={searchValue}
                           onChange={handleOnChangeSearch}
+                          className="mobileFilter"
                         />
                       </td>
                     </tr>
@@ -305,7 +307,7 @@ function APIPage() {
                       <td>
                         {" "}
                         <select
-                          className="speciesSelect"
+                          className="speciesSelect mobileFilter"
                           onChange={handleOnChangeSpecies}
                         >
                           <option value="all">all</option>
@@ -328,7 +330,7 @@ function APIPage() {
                       <td>
                         {" "}
                         <select
-                          className="locationSelect"
+                          className="locationSelect mobileFilter"
                           onChange={handleOnChangeLocation}
                         >
                           <option value="all">all</option>
