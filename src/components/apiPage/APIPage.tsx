@@ -280,9 +280,75 @@ function APIPage() {
               direction="bottom"
               lockBackgroundScroll={true}
               className="drawer"
+              size="120px"
             >
               <div className="mobileFilterBox">
-                <div className="searchContainer">
+                <div className="table">
+                  <table>
+                    <tr>
+                      <td> Search by name:</td>
+                      <td>
+                        {" "}
+                        <input
+                          type="text"
+                          id="search"
+                          value={searchValue}
+                          onChange={handleOnChangeSearch}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {" "}
+                        <label>Choose a species:</label>
+                      </td>
+                      <td>
+                        {" "}
+                        <select
+                          className="speciesSelect"
+                          onChange={handleOnChangeSpecies}
+                        >
+                          <option value="all">all</option>
+                          {speciesArr &&
+                            speciesArr.map((species, index) => {
+                              return (
+                                <option key={index} value={species}>
+                                  {species}
+                                </option>
+                              );
+                            })}
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {" "}
+                        <label>Choose an actual Location:</label>
+                      </td>
+                      <td>
+                        {" "}
+                        <select
+                          className="locationSelect"
+                          onChange={handleOnChangeLocation}
+                        >
+                          <option value="all">all</option>
+                          {originArr &&
+                            originArr.map((location, index) => {
+                              return (
+                                <option
+                                  key={index}
+                                  value={location?.toString()}
+                                >
+                                  {location}
+                                </option>
+                              );
+                            })}
+                        </select>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                {/* <div className="searchContainer">
                   <label>Search by name:</label>
                   <input
                     type="text"
@@ -290,8 +356,8 @@ function APIPage() {
                     value={searchValue}
                     onChange={handleOnChangeSearch}
                   />
-                </div>
-                <div className="speciesContainer">
+                </div> */}
+                {/* <div className="speciesContainer">
                   <label>Choose a species:</label>
                   <select
                     className="speciesSelect"
@@ -307,10 +373,10 @@ function APIPage() {
                         );
                       })}
                   </select>
-                </div>
+                </div> */}
 
-                <div className="locContainer">
-                  <label>Choose an origin:</label>
+                {/* <div className="locContainer">
+                  <label>Choose an actual Location:</label>
                   <select
                     className="locationSelect"
                     onChange={handleOnChangeLocation}
@@ -325,7 +391,7 @@ function APIPage() {
                         );
                       })}
                   </select>
-                </div>
+                </div> */}
               </div>
             </Drawer>
           </div>
