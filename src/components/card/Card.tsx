@@ -9,7 +9,7 @@ type cardProps = {
 function Card({ children }: cardProps) {
   return (
     <div className="card">
-      <img src={children?.image.toString()} alt="Picture" />
+      <img src={children?.image.toString()} alt="Picture" loading="lazy" />
       <div className="charBox">
         <h1>{children?.name} </h1>
         <div className="cardTextContainer">
