@@ -280,7 +280,7 @@ function APIPage() {
               direction="bottom"
               lockBackgroundScroll={true}
               className="drawer"
-              size="120px"
+              size="140px"
             >
               <div className="mobileFilterBox">
                 <div className="table">
