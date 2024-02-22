@@ -12,41 +12,20 @@ function Card({ children }: cardProps) {
       <img src={children?.image.toString()} alt="Picture" />
       <div className="charBox">
         <h1>{children?.name} </h1>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <p>Species:</p>
-              </td>
-              <td>
-                <p>{children?.species}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Gender:</p>
-              </td>
-              <td>
-                <p>{children?.gender}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Origin:</p>
-              </td>
-              <td>
-                <p>{children?.origin}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Current location:</p>
-              </td>
-              <td>
-                <p>{children?.location}</p>
-              </td>
-            </tr>
-            {/* <tr>
+        <div className="cardTextContainer">
+          <div>
+            <p>Species:</p> <p> {children?.species}</p>
+          </div>
+          <div>
+            <p>Gender:</p> <p> {children?.gender}</p>
+          </div>
+          <div>
+            <p>Origin:</p> <p> {children?.origin}</p>
+          </div>
+          <div>
+            <p>Current location:</p> <p> {children?.location}</p>
+          </div>
+          {/* <tr>
               <td>
                 <p>In episode:</p>
               </td>
@@ -54,8 +33,7 @@ function Card({ children }: cardProps) {
                 <p>{episoden}</p>
               </td>
             </tr> */}
-          </tbody>
-        </table>
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
   border: yellow 3px solid;
   height: 100%;
   width: 100%;
-  border-radius: 40px;
+  border-radius: var(--radius3);
   background: var(--blau);
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@
   height: 50%;
   width: 100%;
   object-fit: fill;
-  border-radius: var(--radius1);
+  border-radius: var(--radius3);
   border-bottom-right-radius: 0;
   border: black solid;
   outline: 0.5vh solid var(--grün);
@@ -34,8 +34,10 @@ p {
   height: 50%;
   display: flex;
   align-content: center;
-
   flex-direction: column;
+
+  border-bottom-left-radius: var(--radius3);
+  border-bottom-right-radius: var(--radius3);
 }
 
 .charBox td {
@@ -50,6 +52,25 @@ p {
 
   border-collapse: collapse;
   margin: 0 1vw;
+}
+.cardTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: scroll;
+}
+.cardTextContainer div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: yellow 3px solid;
+}
+
+.cardTextContainer div p {
+  text-align: start;
+}
+.cardTextContainer div p:last-child {
+  text-align: end;
 }
 
 @keyframes move {
