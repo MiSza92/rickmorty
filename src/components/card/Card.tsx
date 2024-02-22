@@ -16,23 +16,18 @@ function Card({ children }: cardProps) {
           <div>
             <p>Species:</p> <p> {children?.species}</p>
           </div>
+          <hr />
           <div>
             <p>Gender:</p> <p> {children?.gender}</p>
           </div>
+          <hr />
           <div>
             <p>Origin:</p> <p> {children?.origin}</p>
           </div>
+          <hr />
           <div>
             <p>Current location:</p> <p> {children?.location}</p>
           </div>
-          {/* <tr>
-              <td>
-                <p>In episode:</p>
-              </td>
-              <td>
-                <p>{episoden}</p>
-              </td>
-            </tr> */}
         </div>
       </div>
     </div>

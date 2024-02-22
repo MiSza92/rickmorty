@@ -24,7 +24,7 @@
 }
 
 h1 {
-  font-size: 4vh;
+  font-size: 3vh;
 }
 p {
   font-size: 2.3vh;
@@ -50,7 +50,8 @@ p {
 .cardTextContainer div {
   display: flex;
   justify-content: space-between;
-  border-bottom: yellow 3px solid;
+  /* border-bottom: var(--grün) 3px solid; */
+  /* border-bottom: 1px solid; */
 }
 
 .cardTextContainer div p {
@@ -58,6 +59,12 @@ p {
 }
 .cardTextContainer div p:last-child {
   text-align: end;
+}
+.cardTextContainer hr {
+  margin: 0 6vw;
+
+  width: 80%;
+  color: var(--grün);
 }
 
 @keyframes move {
