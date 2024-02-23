@@ -13,9 +13,7 @@
   opacity: 0.5;
   transition: background-color, ease 1s;
 }
-.box p {
-  text-align: center;
-}
+
 .active {
   background: var(--blau);
   transition: background-color, opacity ease 1s;
