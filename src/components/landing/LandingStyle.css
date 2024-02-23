@@ -120,7 +120,7 @@
   }
 }
 .mobileCon {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@
   width: 90%;
   margin: 2vh;
 
-  flex-grow: 3;
+  flex-grow: 2;
   border-radius: 15px;
   padding: 2vh 0;
   border: black solid;
