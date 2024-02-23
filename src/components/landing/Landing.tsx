@@ -14,7 +14,7 @@ function Landing() {
   const width = useGetWidth();
   return (
     <div className="landing">
-      {width < 1365 ? (
+      {width > 1365 ? (
         <div className="api">
           <div className="optionsContainer">
             <div className="headLine">
