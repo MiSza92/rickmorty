@@ -128,7 +128,6 @@
   flex-direction: column;
 }
 .mobileHeadLine img {
-  height: 30%;
   width: 100%;
   animation: move 0.8s infinite;
 }
