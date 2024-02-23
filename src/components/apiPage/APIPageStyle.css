@@ -127,7 +127,7 @@
   overflow: hidden;
 }
 .boxContainer {
-  height: 90%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -143,8 +143,8 @@
   font-size: 3.5rem;
 }
 .epiBox {
-  width: 7rem;
-  height: 4.5rem;
+  width: 5rem;
+  height: 3.5rem;
   font-size: 2.5rem;
   margin: 1vh 0.2vw;
 }
