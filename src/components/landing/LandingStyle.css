@@ -5,7 +5,7 @@
   color: yellow;
   display: flex;
   justify-content: center;
-
+  background: var(--background);
   flex-direction: column;
   overflow: hidden;
 }
