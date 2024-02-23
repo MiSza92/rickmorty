@@ -22,6 +22,7 @@ import { charData } from "../../customTypes";
 import React from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import { useGetWidth } from "../../hooks/useGetWidth";
 
 function APIPage() {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -29,7 +30,7 @@ function APIPage() {
   const [originValue, setOriginValue] = useState<string>("all");
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
   const [episodesArr, setEpisodesArr] = useState<boolean[]>();
-  const [width, setWidth] = useState<number>(0);
+  const [width, setWidth] = useState<number>(1800);
 
   const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSpeciesValue(e.target.value);
@@ -56,31 +57,19 @@ function APIPage() {
 
   useEffect(() => {
     if (outPutArr[swiperIndex]) {
-      // console.log("object :>> ", outPutArr[swiperIndex]);
       setEpisodesArr(createBoxesArr(outPutArr[swiperIndex]));
-      // console.log("episodesArr :>> ", episodesArr);
     }
   }, [swiperIndex, outPutArr]);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
-  //! bei 1365 umschalten
 
-  useEffect(() => {
-    const updateWindowDimensions = () => {
-      const newWidth = window.innerWidth;
-      setWidth(newWidth);
-    };
-
-    window.addEventListener("resize", updateWindowDimensions);
-
-    return () => window.removeEventListener("resize", updateWindowDimensions);
-  }, [width]);
+  const bla = useGetWidth(); //! bei 1365 umschalten
 
   return (
     <div>
-      {width > 1365 ? (
+      {bla > 1365 ? (
         <div className="api">
           <div className="optionsContainer">
             {loading ? (
@@ -286,68 +275,70 @@ function APIPage() {
               <div className="mobileFilterBox">
                 <div className="table">
                   <table>
-                    <tr>
-                      <td> Search by name:</td>
-                      <td>
-                        {" "}
-                        <input
-                          type="text"
-                          id="search"
-                          value={searchValue}
-                          onChange={handleOnChangeSearch}
-                          className="mobileFilter"
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {" "}
-                        <label>Choose a species:</label>
-                      </td>
-                      <td>
-                        {" "}
-                        <select
-                          className="speciesSelect mobileFilter"
-                          onChange={handleOnChangeSpecies}
-                        >
-                          <option value="all">all</option>
-                          {speciesArr &&
-                            speciesArr.map((species, index) => {
-                              return (
-                                <option key={index} value={species}>
-                                  {species}
-                                </option>
-                              );
-                            })}
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {" "}
-                        <label>Choose an actual Location:</label>
-                      </td>
-                      <td>
-                        {" "}
-                        <select
-                          className="locationSelect mobileFilter"
-                          onChange={handleOnChangeLocation}
-                        >
-                          <option value="all">all</option>
-                          {originArr &&
-                            originArr.map((location, index) => {
-                              return (
-                                <option
-                                  key={index}
-                                  value={location?.toString()}
-                                >
-                                  {location}
-                                </option>
-                              );
-                            })}
-                        </select>
-                      </td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td> Search by name:</td>
+                        <td>
+                          {" "}
+                          <input
+                            type="text"
+                            id="search"
+                            value={searchValue}
+                            onChange={handleOnChangeSearch}
+                            className="mobileFilter"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {" "}
+                          <label>Choose a species:</label>
+                        </td>
+                        <td>
+                          {" "}
+                          <select
+                            className="speciesSelect mobileFilter"
+                            onChange={handleOnChangeSpecies}
+                          >
+                            <option value="all">all</option>
+                            {speciesArr &&
+                              speciesArr.map((species, index) => {
+                                return (
+                                  <option key={index} value={species}>
+                                    {species}
+                                  </option>
+                                );
+                              })}
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {" "}
+                          <label>Choose an actual Location:</label>
+                        </td>
+                        <td>
+                          {" "}
+                          <select
+                            className="locationSelect mobileFilter"
+                            onChange={handleOnChangeLocation}
+                          >
+                            <option value="all">all</option>
+                            {originArr &&
+                              originArr.map((location, index) => {
+                                return (
+                                  <option
+                                    key={index}
+                                    value={location?.toString()}
+                                  >
+                                    {location}
+                                  </option>
+                                );
+                              })}
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
                 {/* <div className="searchContainer">

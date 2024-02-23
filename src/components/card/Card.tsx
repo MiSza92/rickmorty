@@ -20,22 +20,24 @@ function Card({ children }: cardProps) {
               </td>
             </tr>
           </thead>
-          <tr>
-            <td>Species:</td>
-            <td>{children?.species}</td>
-          </tr>
-          <tr>
-            <td>Gender:</td>
-            <td>{children?.gender}</td>
-          </tr>
-          <tr>
-            <td>Origin:</td>
-            <td> {children?.origin}</td>
-          </tr>
-          <tr>
-            <td>Current location:</td>
-            <td>{children?.location}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Species:</td>
+              <td>{children?.species}</td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td>{children?.gender}</td>
+            </tr>
+            <tr>
+              <td>Origin:</td>
+              <td> {children?.origin}</td>
+            </tr>
+            <tr>
+              <td>Current location:</td>
+              <td>{children?.location}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

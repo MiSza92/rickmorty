@@ -25,8 +25,8 @@ function Landing() {
               Morty character. <br />
               You'll find several options to filter i used the "react modern
               drawer" package for the drawer on the mobile Version. <br />
-              The shown character Cards are presented with a Swiper.js
-              component.
+              The shown character Cards are builded on my own and they are
+              presented with a Swiper.js component.
             </p>
           </div>
           <div className="btnContainer">
