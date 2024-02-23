@@ -101,7 +101,7 @@
   padding: 1vh 0 !important;
 }
 .swiper-slide-shadow-right {
-  border-radius: var(--radius3) !important;
+  border-radius: var(--radius2) !important;
   margin-right: 4.5vw !important;
   width: 75% !important;
 }
