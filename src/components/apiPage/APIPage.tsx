@@ -30,7 +30,6 @@ function APIPage() {
   const [originValue, setOriginValue] = useState<string>("all");
   const [swiperIndex, setSwiperIndex] = useState<number>(0);
   const [episodesArr, setEpisodesArr] = useState<boolean[]>();
-  const [width, setWidth] = useState<number>(1800);
 
   const handleOnChangeSpecies = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSpeciesValue(e.target.value);
@@ -65,11 +64,11 @@ function APIPage() {
     setIsOpen((prevState) => !prevState);
   };
 
-  const bla = useGetWidth(); //! bei 1365 umschalten
+  const width = useGetWidth(); //! bei 1365 umschalten
 
   return (
     <div>
-      {bla > 1365 ? (
+      {width > 1365 ? (
         <div className="api">
           <div className="optionsContainer">
             {loading ? (
