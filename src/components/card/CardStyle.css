@@ -38,7 +38,7 @@
   height: 100%;
   border-collapse: collapse;
 }
-.infoTable tr:not(:first-child):not(:last-child) {
+.infoTable tr:not(:last-child) {
   border-bottom: 2pt solid var(--grün);
 }
 .infoTable td {
