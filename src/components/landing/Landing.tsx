@@ -6,7 +6,7 @@ import header from "../../assets/rmLogo.png";
 function Landing() {
   function handleClick() {
     window.scroll({
-      top: document.body.offsetHeight,
+      top: document.body.clientHeight,
       left: 0,
     });
   }
