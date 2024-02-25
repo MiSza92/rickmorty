@@ -25,10 +25,11 @@
 
 .charBox {
   padding: 0vh 1vw;
-  height: auto;
+  height: 55%;
   display: flex;
   align-content: center;
   flex-direction: column;
+
   border-bottom-left-radius: var(--radius2);
   border-bottom-right-radius: var(--radius2);
 }
