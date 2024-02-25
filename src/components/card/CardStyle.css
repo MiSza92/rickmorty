@@ -24,21 +24,17 @@
 }
 
 .charBox {
-  /* padding-top: 1vh; */
   padding: 0vh 1vw;
-  /* height: 50%; */
+  height: auto;
   display: flex;
   align-content: center;
   flex-direction: column;
-
   border-bottom-left-radius: var(--radius2);
   border-bottom-right-radius: var(--radius2);
-  border: red solid;
 }
 .infoTable {
   height: 100%;
   border-collapse: collapse;
-  border: red solid;
 }
 .infoTable tr:not(:last-child) {
   border-bottom: 2pt solid var(--grün);
