@@ -11,12 +11,12 @@
   border: 0.2vh solid var(--grün);
   outline: black solid 0.1px;
   opacity: 0.5;
-  /* transition: background-color, ease 1s; */
+  transition: background-color, ease 1s;
 }
 
 .active {
   background: var(--blau);
-  /* transition: background-color, opacity ease 1s;
-  transition: opacity ease-out 1s; */
+  transition: background-color, opacity ease 1s;
+  transition: opacity ease-out 1s;
   opacity: 1;
 }
