@@ -68,7 +68,7 @@ function APIPage() {
 
   return (
     <div>
-      {width > 1365 ? (
+      {width > 1000 ? (
         <div className="api">
           <div className="optionsContainer">
             {loading ? (

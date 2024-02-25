@@ -106,9 +106,9 @@
   width: 75% !important;
 }
 .swiper-slide-shadow-left {
-  border-radius: var(--radius3) !important;
-  margin-left: 4.5vw !important;
-  width: 75% !important;
+  border-radius: var(--radius2) !important;
+  margin-left: 7.5vw !important;
+  width: 100% !important;
 }
 
 .singleSlide {

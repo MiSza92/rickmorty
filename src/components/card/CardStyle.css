@@ -5,7 +5,7 @@
   border-radius: var(--radius2);
   background: var(--blau);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   animation: move 1s infinite;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -13,7 +13,7 @@
 }
 
 .card img {
-  height: 50%;
+  height: 45%;
   width: 100%;
   object-fit: fill;
   border-radius: var(--radius2);
@@ -24,22 +24,26 @@
 }
 
 .charBox {
-  padding-top: 1vh;
+  /* padding-top: 1vh; */
   padding: 0vh 1vw;
-  height: 50%;
+  /* height: 50%; */
   display: flex;
   align-content: center;
   flex-direction: column;
 
-  border-bottom-left-radius: var(--radius3);
-  border-bottom-right-radius: var(--radius3);
+  border-bottom-left-radius: var(--radius2);
+  border-bottom-right-radius: var(--radius2);
+  border: red solid;
 }
 .infoTable {
   height: 100%;
   border-collapse: collapse;
+  border: red solid;
 }
 .infoTable tr:not(:last-child) {
   border-bottom: 2pt solid var(--grün);
+}
+.infoTable tr:last-child {
 }
 .infoTable td {
   color: var(--grün);
